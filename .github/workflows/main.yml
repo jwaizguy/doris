@@ -14,7 +14,12 @@ jobs:
         uses: actions/checkout@v4
       - name: Polaris Scan
         uses: synopsys-sig/synopsys-action@v1.11.0
+        env:
+          DETECT_DETECTOR_SEARCH_DEPTH: 10
+          DETECT_ACCURACY_REQUIRED: NONE
+          BRIDGE_POLARIS_ASSESSMENT_MODE: SOURCE_UPLOAD
         with:
+        
           ### SCANNING: Required fields
           polaris_server_url: ${{ vars.POLARIS_SERVERURL }}
           polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
